@@ -139,4 +139,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - GitHub: [NonStopBle](https://github.com/NonStopBle/Recam)
 
 ## Acknowledgments
-- Special thanks to all contributors who helped improve this project ninzaza007
+- Special thanks to all contributors who helped improve this project
