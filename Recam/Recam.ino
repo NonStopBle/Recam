@@ -140,7 +140,7 @@ void UDPRun()
     if (!fb)
     {
         Serial.println("Camera capture failed");
-        delay(FRAME_RATE_DELAY);
+        delay(10);
         return;
     }
 
