@@ -1,6 +1,6 @@
 /*
 # Recam Project
-# This script streams camera data from an ESP32-CAM to a Python application over a UDP network in real-time.
+# This project streams camera data from an ESP32-CAM to a Python application over a UDP network in real-time.
 # It can be integrated with image detection or other processing tasks for further applications.
 # Author: Rezier [https://www.youtube.com/@REZIER_0]
 # Github : NonStopBle [https://github.com/NonStopBle/Recam]
