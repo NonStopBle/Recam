@@ -5,7 +5,7 @@ Recam is a real-time video streaming solution that enables high-performance came
 ## Features
 
 - Real-time video streaming over UDP
-- Bidirectional data communication (5 int16 values in each direction)
+- Bidirectional data communication (5 int16 values in each direction) / need to update can send multiple variable
 - Low latency transmission
 - Simple API for integration with other Python applications
 - Configurable video quality and resolution
