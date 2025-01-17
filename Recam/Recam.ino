@@ -35,19 +35,6 @@ union IntConvert
 void setup()
 {
     Serial.begin(9600);
-    // Connect to Wi-Fi
-    WiFi.begin(ssid, password);
-    Serial.print("Connecting to WiFi");
-    while (WiFi.status() != WL_CONNECTED)
-    {
-        delay(500);
-        Serial.print(".");
-    }
-    Serial.println("\nWiFi connected");
-
-    // Start UDP
-    udp.begin(udpPort);
-    Serial.printf("UDP started on port %d\n", udpPort);
 
     // Camera configuration
     camera_config_t config;
@@ -76,34 +63,10 @@ void setup()
     config.frame_size = FRAMESIZE_VGA; 
     config.jpeg_quality = 15;          // Adjust quality (0-63 lower is better)
     config.fb_count = 2;               // Connect to Wi-Fi
-    WiFi.begin(ssid, password);
-    Serial.print("Connecting to WiFi");
-    while (WiFi.status() != WL_CONNECTED)
-    {
-        delay(1);
-        Serial.print(".");
-    }
-    Serial.println("\nWiFi connected");
-
-    // Start UDP
-    udp.begin(udpPort);
-    Serial.printf("UDP started on port %d\n", udpPort);
 
     // Initialize camera
     esp_err_t err = esp_camera_init(&config);
-    sensor_t *s = esp_camera_sensor_get();
-
-    // s->set_hmirror(s, 1);
-    s->set_brightness(s, 50);
-    s->set_exposure_ctrl(s, 1);
-
-    robotDataSend[0].asInt = 0;
-    robotDataSend[1].asInt = 0;
-    robotDataSend[2].asInt = 0;
-    robotDataSend[3].asInt = 0;
-    robotDataSend[4].asInt = 0;
-
-    if (err != ESP_OK)
+   if (err != ESP_OK)
     {
         Serial.printf("Camera init failed with error 0x%x", err);
         while (true)
@@ -111,7 +74,32 @@ void setup()
             delay(1);
         }
     }
-    Serial.println("Camera initialized");
+    Serial.println("Camera initialized");   
+    delay(1000);
+    sensor_t *s = esp_camera_sensor_get();
+    // s->set_hmirror(s, 1);
+    s->set_brightness(s, 50);
+    s->set_exposure_ctrl(s, 1);
+
+    WiFi.begin(ssid, password);
+    Serial.print("Connecting to WiFi");
+    
+    while (WiFi.status() != WL_CONNECTED)
+    {
+        delay(1);
+        Serial.print(".");
+    }
+        // Start UDP
+    udp.begin(udpPort);
+    Serial.printf("UDP started on port %d\n", udpPort);
+    Serial.println("\nWiFi connected");
+
+    robotDataSend[0].asInt = 0;
+    robotDataSend[1].asInt = 0;
+    robotDataSend[2].asInt = 0;
+    robotDataSend[3].asInt = 0;
+    robotDataSend[4].asInt = 0;
+
 }
 
 String getValue(String data, char separator, int index)
