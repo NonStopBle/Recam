@@ -1,4 +1,4 @@
-# Recam Project
+# Recam Project (Early access)
 
 Recam is a real-time video streaming solution that enables high-performance camera streaming from an ESP32-CAM to a Python application over UDP. The project consists of two main components: an ESP32-CAM firmware and a Python library for receiving and processing the video stream.
 
